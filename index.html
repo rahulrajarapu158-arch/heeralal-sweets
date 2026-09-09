@@ -112,6 +112,30 @@
     </div>
   </header>
 
+  <!-- MOBILE DRAWER MENU -->
+  <div class="mobile-drawer-backdrop" id="drawer-backdrop"></div>
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <span class="brand-title">HEERALAL SWEETS</span>
+        <button class="drawer-close" id="drawer-close-btn" aria-label="Close menu">&times;</button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#menu" class="mobile-link">Our Sweets</a>
+        <a href="#about" class="mobile-link">Our Story</a>
+        <a href="#reviews" class="mobile-link">Customer Reviews</a>
+        <a href="#visit" class="mobile-link">Visit Store</a>
+      </div>
+      <div class="mobile-drawer-footer">
+        <a href="https://wa.me/" class="btn btn-gold btn-full">
+          <svg class="icon-md" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+          Order on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- HERO SECTION -->
   <section id="home" class="hero-section">
     <div class="hero-bg-accent" aria-hidden="true"></div>
@@ -661,6 +685,42 @@
         } else {
           noResults.style.display = 'none';
         }
+      });
+    })();
+
+    // Mobile Drawer Navigation
+    (function() {
+      const hamburger = document.getElementById('hamburger-btn');
+      const drawer = document.getElementById('mobile-drawer');
+      const backdrop = document.getElementById('drawer-backdrop');
+      const closeBtn = document.getElementById('drawer-close-btn');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      function openDrawer() {
+        drawer.classList.add('open');
+        backdrop.classList.add('open');
+        hamburger.classList.add('active');
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('open');
+        backdrop.classList.remove('open');
+        hamburger.classList.remove('active');
+      }
+
+      hamburger.addEventListener('click', () => {
+        if (drawer.classList.contains('open')) {
+          closeDrawer();
+        } else {
+          openDrawer();
+        }
+      });
+
+      closeBtn.addEventListener('click', closeDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', closeDrawer);
       });
     })();
   </script>

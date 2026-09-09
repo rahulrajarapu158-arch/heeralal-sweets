@@ -1292,6 +1292,8 @@ img {
    12. RESPONSIVE BREAKPOINTS
    -------------------------------------------------------------------------- */
 @media (max-width: 992px) {
+  .nav-menu { display: none; }
+  .hamburger { display: flex; }
   .hero-grid { grid-template-columns: 1fr; text-align: center; }
   .hero-description { margin: 0 auto 32px; }
   .hero-actions { justify-content: center; }
@@ -1425,4 +1427,32 @@ img {
   color: var(--text-muted);
   font-size: 16px;
   width: 100%;
+}
+
+/* Mobile Drawer Close Button */
+.drawer-close {
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--text-dark);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+}
+
+/* Mobile Drawer Backdrop */
+.mobile-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-drawer-backdrop.open {
+  opacity: 1;
+  visibility: visible;
 }
