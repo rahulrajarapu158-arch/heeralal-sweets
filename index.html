@@ -190,7 +190,7 @@
         <div class="ornament-line" aria-hidden="true"><span>❖</span></div>
       </div>
 
-      <!-- FILTER TABS -->
+      <!-- FILTER TABS & SEARCH -->
       <div class="filter-controls">
         <div class="filter-tabs" id="filter-tabs" role="tablist" aria-label="Product categories">
           <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Collection</button>
@@ -198,6 +198,9 @@
           <button class="filter-btn" data-filter="bengali" role="tab" aria-selected="false">Bengali Sweets</button>
           <button class="filter-btn" data-filter="dry-fruits" role="tab" aria-selected="false">Dry Fruit Delicacies</button>
           <button class="filter-btn" data-filter="sugar-free" role="tab" aria-selected="false">Sugar Free</button>
+        </div>
+        <div class="inline-search-box">
+          <input type="text" id="inline-search-input" placeholder="Search sweets by name..." aria-label="Filter sweets by name">
         </div>
       </div>
 
@@ -625,6 +628,39 @@
       elements.forEach(el => {
         el.classList.add('fade-in-up');
         observer.observe(el);
+      });
+    })();
+
+    // Live Product Search
+    (function() {
+      const searchInput = document.getElementById('inline-search-input');
+      const productCards = document.querySelectorAll('.product-card');
+      const noResults = document.createElement('div');
+      noResults.className = 'no-results';
+      noResults.innerHTML = '<p>No sweets found matching your search.</p>';
+      document.getElementById('product-grid').appendChild(noResults);
+
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        productCards.forEach(card => {
+          const name = card.dataset.name.toLowerCase();
+          const desc = card.querySelector('.product-desc').textContent.toLowerCase();
+          
+          if (name.includes(query) || desc.includes(query)) {
+            card.style.display = '';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (visibleCount === 0) {
+          noResults.style.display = 'block';
+        } else {
+          noResults.style.display = 'none';
+        }
       });
     })();
   </script>
