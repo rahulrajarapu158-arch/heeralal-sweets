@@ -593,18 +593,38 @@
       if (!bar) return;
       
       let lastScroll = 0;
-      const showAfter = 400; // pixels to scroll before showing
+      const showAfter = 400;
       
       window.addEventListener('scroll', () => {
         const currentScroll = window.scrollY;
-        
         if (currentScroll > showAfter) {
           bar.classList.add('visible');
         } else {
           bar.classList.remove('visible');
         }
-        
         lastScroll = currentScroll;
+      });
+    })();
+
+    // Scroll Fade-In Animations
+    (function() {
+      const elements = document.querySelectorAll('.product-card, .feature-card, .review-card, .summary-card, .about-content, .about-visual, .visit-info, .visit-map, .section-header');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up', 'visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      elements.forEach(el => {
+        el.classList.add('fade-in-up');
+        observer.observe(el);
       });
     })();
   </script>
