@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="50%" style="stop-color:#FFA500"/>
+      <stop offset="100%" style="stop-color:#FF8C00"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4136"/>
+      <stop offset="100%" style="stop-color:#B22222"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#goldGrad)" filter="url(#shadow)"/>
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#8B4513" stroke-width="3"/>
+  
+  <!-- Sweet Icon (Mithai) -->
+  <ellipse cx="100" cy="115" rx="45" ry="30" fill="#8B4513"/>
+  <ellipse cx="100" cy="105" rx="45" ry="20" fill="#D2691E"/>
+  <circle cx="80" cy="100" r="8" fill="#FFD700"/>
+  <circle cx="100" cy="95" r="8" fill="#FFD700"/>
+  <circle cx="120" cy="100" r="8" fill="#FFD700"/>
+  <circle cx="90" cy="110" r="6" fill="#FF6347"/>
+  <circle cx="110" cy="110" r="6" fill="#FF6347"/>
+  
+  <!-- Decorative Leaves -->
+  <path d="M50 60 Q60 40 70 60" fill="none" stroke="#228B22" stroke-width="3" stroke-linecap="round"/>
+  <path d="M130 60 Q140 40 150 60" fill="none" stroke="#228B22" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Text: HEERALAL -->
+  <text x="100" y="55" text-anchor="middle" font-family="Georgia, serif" font-size="16" font-weight="bold" fill="#8B4513">HEERALAL</text>
+  
+  <!-- Text: SWEET HOUSE -->
+  <text x="100" y="165" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="600" fill="url(#redGrad)">SWEET HOUSE</text>
+  
+  <!-- Established -->
+  <text x="100" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">EST. 1965</text>
+</svg>
